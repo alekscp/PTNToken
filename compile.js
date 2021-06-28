@@ -29,9 +29,10 @@ const findImports = (path) => {
 
 const output = JSON.parse(solc.compile(JSON.stringify(input), { import: findImports }));
 
-console.log("output: ", output)
-for (let contractName in output.contracts["Poutine.sol"]) {
-  console.log(contractName + ": " + output.contracts["Poutine.sol"][contractName].evm.bytecode.object);
-}
+const interface = output.contracts["Poutine.sol"].PTNToken.abi;
+const bytecode = output.contracts["Poutine.sol"].PTNToken.evm.bytecode.object;
 
-
+module.exports = {
+  interface,
+  bytecode
+};
