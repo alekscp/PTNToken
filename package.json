@@ -1,0 +1,14 @@
+{
+  "name": "poutinetoken",
+  "version": "1.0.0",
+  "description": "Simple ERC20 Token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aleks CP",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.1.0"
+  }
+}
