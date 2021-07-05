@@ -29,10 +29,12 @@ const findImports = (path) => {
 
 const output = JSON.parse(solc.compile(JSON.stringify(input), { import: findImports }));
 
-const interface = output.contracts["Poutine.sol"].PTNToken.abi;
+const abi = output.contracts["Poutine.sol"].PTNToken.abi;
 const bytecode = output.contracts["Poutine.sol"].PTNToken.evm.bytecode.object;
 
-module.exports = {
-  interface,
-  bytecode
-};
+const artifact = JSON.stringify({ abi, bytecode }, null, 2)
+
+fs.writeFile("Poutine.json", artifact, (err) => {
+  if (err) throw err
+  console.log("Artifact contract file saved!")
+})
