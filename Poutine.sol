@@ -10,8 +10,6 @@ contract PTNToken is ERC20, AccessControl {
 
     constructor(uint256 initialSupply) ERC20("Poutine", "PTN") {
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
-
-        mint(msg.sender, initialSupply);
     }
 
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
